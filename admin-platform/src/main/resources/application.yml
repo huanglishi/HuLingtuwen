@@ -1,0 +1,23 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /platform #配置项目访问路径URL的根路径
+#应用名称 （nacos会将该名称当做服务名称）
+spring:
+  application:
+    name: platform-service
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+    loadbalancer:
+      ribbon:
+        enabled: false #禁用ribbon
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java/com/huling/platform #重启目录
+      exclude: WEB-INF
